@@ -34,6 +34,9 @@ module double_buffer
     if (rst_n) begin
       if (switch_banks) begin
         active_write_bank_r <= !active_write_bank_r;
+        // $write("Switching banks");
+        //display timestamp
+        // $display($realtime);
       end
     end else begin
       active_write_bank_r <= 1'b0;

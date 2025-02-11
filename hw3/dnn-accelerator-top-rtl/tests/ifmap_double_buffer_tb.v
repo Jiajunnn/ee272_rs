@@ -154,7 +154,7 @@ module ifmap_double_buffer_tb;
     		$fsdbDumpvars(0, ifmap_double_buffer_tb);
     		$fsdbDumpMDA();
 			`endif
-    		#20000000;
+    		#2000;
     		$finish(2);
   	end
 

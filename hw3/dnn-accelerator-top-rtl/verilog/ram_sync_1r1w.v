@@ -21,9 +21,11 @@ module ram_sync_1r1w
   always @(posedge clk) begin
     if (wen) begin
       mem[wadr] <= wdata; // write port
+      $write("Gainsight %m Write to address %d at time stamp: %d ns with data %h \n", wadr, $realtime, wdata);
     end
     if (ren) begin
       rdata_reg <= mem[radr]; // read port
+      $write("Gainsight %m Read to address %d at time stamp: %d ns with data %h \n", radr, $realtime, rdata_reg);
     end
   end
   // synopsys translate_on
