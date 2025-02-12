@@ -71,8 +71,8 @@ def compute_lifetimes(events):
     return lifetime_map
 
 def main():
-    if len(sys.argv) != 2:
-        print("Usage: python script.py <log_file>")
+    if len(sys.argv) != 3:
+        print("Usage: python script.py <log_file> <output_csv>")
         sys.exit(1)
     
     log_file = sys.argv[1]
@@ -88,7 +88,7 @@ def main():
             print(f"Buffer={buffer}, Addr={addr}: lifetimes = {lifetimes}")
     
     # Write to CSV
-    csv_filename = "lifetimes_buffer_addr.csv"
+    csv_filename = sys.argv[2]
     with open(csv_filename, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["Buffer", "Address", "Lifetime"])

@@ -20,14 +20,14 @@ def plot_histograms(csv_file):
         ax.set_xlabel(f'Lifetime (Grouped by {bin_size}ns)')
         ax.set_ylabel('Frequency')
     
-    output_file = 'histograms_buffer.png'
+    output_file = sys.argv[2]
     plt.savefig(output_file)
     plt.close()
     
     print(f"Histograms grouped by {bin_size}ns saved to {output_file}")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python script.py <csv_file>")
+    if len(sys.argv) != 3:
+        print("Usage: python script.py <csv_file> <histogram_png>")
         sys.exit(1)
     plot_histograms(sys.argv[1])
